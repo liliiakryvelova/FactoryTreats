@@ -21,10 +21,6 @@ namespace Factory.Controllers
       return View(_db.Engineers.ToList());
     }
 
-    public ActionResult AllEngineerMachine()
-    {
-      return View(_db.EngineerMachine.ToList());
-    }
 
     public ActionResult Details(int id)
     {

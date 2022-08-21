@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
+
 
 namespace Factory.Controllers
 {
@@ -37,12 +39,23 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Engineer engineer)
+     public ActionResult Create(Engineer engineer)
     {
-        _db.Engineers.Add(engineer);
-        _db.SaveChanges();
+        bool thisEngineer = _db.Engineers.Any(u => u.EngineerName == engineer.EngineerName);
+        if(!thisEngineer){
+          _db.Engineers.Add(engineer);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+        else{
+          if(thisEngineer){
+            ViewBag.Message = "Name already exist";
+            ModelState.Clear();
+            return View();
+          }
+        }
 
-        return RedirectToAction("Index");
+        return View();
     }
 
     public ActionResult Edit(int id)
@@ -74,8 +87,9 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult AddMachine(Engineer engineer, int MachineId)
     {
+
         if (MachineId != 0)
-        {
+        { 
           _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
           _db.SaveChanges();
         }

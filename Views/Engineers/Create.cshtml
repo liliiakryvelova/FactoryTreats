@@ -9,7 +9,8 @@
 @using (Html.BeginForm())
 {
     @Html.LabelFor(model => model.EngineerName)
-    @Html.TextBoxFor(model => model.EngineerName)
+    @Html.TextBoxFor(model => model.EngineerName)<br />
+    @ViewBag.Message<br />
 
     <input type="submit" value="Add new engineer" class="btn btn-default" />
 }

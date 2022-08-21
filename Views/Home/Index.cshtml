@@ -28,7 +28,32 @@
     <div class="col-md-3">
         <p>@Html.ActionLink("See all Machines", "Index", "Machines")</p> 
     </div>
-    
+
+    @using Factory.Models;
+@model List<Factory.Models.EngineerMachine>;
+
+<h1>Engineers and Machines</h1>
+
+@{
+  int k = 1;
+}
+ 
+<table class = "style" >
+  <tr>
+    <th>Number</th>
+    <th>Engineer Name</th>
+    <th>Machine Name</th>
+  </tr>
+    @foreach(EngineerMachine engineerMachine in Model)
+    {
+      <tr>
+        <td>@Html.Label($"{k}")</td>
+        <td>@Html.ActionLink($"{engineerMachine.Engineer.EngineerName}", "Details", "Engineers",new { id = engineerMachine.Engineer.EngineerId })</td>
+        <td>@Html.ActionLink($"{engineerMachine.Machine.MachineName}", "Details", "Machines", new { id = engineerMachine.Machine.MachineId })</td>
+      </tr>
+      k+=1;
+    }
+</table>
 </div>
 
 

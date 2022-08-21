@@ -32,7 +32,6 @@ C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\ToDoList.T
 C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\ToDoList.TagHelpers.output.cache
 C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\ToDoList.RazorCoreGenerate.cache
 C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\Razor\Views\Engineers\AddMachine.cshtml.g.cs
-C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\Razor\Views\Engineers\AllEngineerMachine.cshtml.g.cs
 C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\Razor\Views\Engineers\Create.cshtml.g.cs
 C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\Razor\Views\Engineers\Delete.cshtml.g.cs
 C:\Users\lilia\Epicodus\ASP.NET\resubmission\Factory\obj\Debug\net5.0\Razor\Views\Engineers\Details.cshtml.g.cs

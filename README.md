@@ -24,10 +24,10 @@ https://github.com/liliiakryvelova/FactoryTreats.git
 ## Setup/Installation Requirements
 
 * _Clone this git on your local computer *For clonning: use button Clone -> from repository. *Copy the clone command(SSH format or HTTPS)._
-* _From a terminal on your local computer, use command "cd" to find the directory where you want to clone this repository. *Type the command ($ git clone HTTPs)._
-* _If you clone successfully , a new sub-directory appears on your local computer. *For working with project, run : dotnet restore._
-* _In the next step, run: dotnet build._
-* _For running the project, run -> dotnet run(in the cmd or terminal)._ 
+* _From a terminal on your local computer, use command "cd" to find the directory where you want to clone this repository. *Type the command (`$ git clone` HTTPs)._
+* _If you clone successfully , a new sub-directory appears on your local computer. *For working with project, run : `dotnet restore`._
+* _In the next step, run: `dotnet build`._
+* _For running the project, run -> `dotnet run` (in the cmd or terminal)._ 
 * _Copy this code into appsettings.json, replacing YOUR_PASSWORD with your MySQL password { "ConnectionStrings": { "DefaultConnection": "Server=localhost;Port=3306;database=factory;uid=root;pwd=[YOUR_PASSWORD]" } }_
 
 

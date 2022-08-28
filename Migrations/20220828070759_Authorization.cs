@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ToDoList.Migrations
+namespace FactoryTreats.Migrations
 {
-    public partial class addIdentity : Migration
+    public partial class Authorization : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

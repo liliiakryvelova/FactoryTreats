@@ -43,7 +43,7 @@ namespace FactoryTreats.Controllers
       public ActionResult Edit(int id)
       {
           var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
-          ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+          ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
           return View(thisTreat);
       }
 

@@ -9,7 +9,10 @@ https://github.com/liliiakryvelova/FactoryTreats.git
 ## Technologies Used
 
 * _ASP.NET Core MVC_
+* _.Net 5.0_
 * _Razor_
+* _HTML_
+* _CSS_
 
 ## Description
 

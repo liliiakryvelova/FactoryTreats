@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FactoryTreats.Models;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace Factory
@@ -29,13 +30,18 @@ namespace Factory
         services.AddEntityFrameworkMySql()
             .AddDbContext<FactoryTreatsContext>(options => options
             .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
+
+        services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<FactoryTreatsContext>()
+                    .AddDefaultTokenProviders();
     }
 
     public void Configure(IApplicationBuilder app)
     {
       app.UseDeveloperExceptionPage();
+      app.UseAuthentication();
       app.UseRouting();
-
+      app.UseAuthorization();
       app.UseEndpoints(routes =>
       {
         routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");

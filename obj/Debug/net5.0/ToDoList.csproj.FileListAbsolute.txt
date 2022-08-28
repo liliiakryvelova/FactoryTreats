@@ -53,3 +53,4 @@ C:\Users\lilia\Epicodus\ASP.NET\SweetSavoryTreats\FactoryTreats\bin\Debug\net5.0
 C:\Users\lilia\Epicodus\ASP.NET\SweetSavoryTreats\FactoryTreats\obj\Debug\net5.0\ToDoList.Views.pdb
 C:\Users\lilia\Epicodus\ASP.NET\SweetSavoryTreats\FactoryTreats\obj\Debug\net5.0\ToDoList.csproj.CopyComplete
 C:\Users\lilia\Epicodus\ASP.NET\SweetSavoryTreats\FactoryTreats\obj\Debug\net5.0\ToDoList.genruntimeconfig.cache
+C:\Users\lilia\Epicodus\ASP.NET\SweetSavoryTreats\FactoryTreats\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

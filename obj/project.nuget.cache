@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FHrFPmdI32Bk4lC6tCO/vG9xrOoURfM7Y8YiyVRwKCBYgXouge2L/GyhWjdXdrrAF90YwZuMOYuEN3MhYjs7Pg==",
+  "dgSpecHash": "xGYNy/qEgBKXjOCZ4rrl9bKfIfK/3tuXeZpLl1BtBPKhn870Yfn/sD7Nv8rn47Fwj5yTX3bJXKWK1RzvYhjvng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lilia\\Epicodus\\ASP.NET\\SweetSavoryTreats\\FactoryTreats\\ToDoList.csproj",
+  "projectFilePath": "C:\\Users\\lilia\\Epicodus\\ASP.NET\\SweetSavoryTreats\\FactoryTreats\\FactoryTreats.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lilia\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\lilia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

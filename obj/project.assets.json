@@ -5985,9 +5985,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lilia\\Epicodus\\ASP.NET\\SweetSavoryTreats\\FactoryTreats\\ToDoList.csproj",
-      "projectName": "ToDoList",
-      "projectPath": "C:\\Users\\lilia\\Epicodus\\ASP.NET\\SweetSavoryTreats\\FactoryTreats\\ToDoList.csproj",
+      "projectUniqueName": "C:\\Users\\lilia\\Epicodus\\ASP.NET\\SweetSavoryTreats\\FactoryTreats\\FactoryTreats.csproj",
+      "projectName": "FactoryTreats",
+      "projectPath": "C:\\Users\\lilia\\Epicodus\\ASP.NET\\SweetSavoryTreats\\FactoryTreats\\FactoryTreats.csproj",
       "packagesPath": "C:\\Users\\lilia\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\lilia\\Epicodus\\ASP.NET\\SweetSavoryTreats\\FactoryTreats\\obj\\",
       "projectStyle": "PackageReference",

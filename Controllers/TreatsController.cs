@@ -4,22 +4,30 @@ using FactoryTreats.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 
 namespace FactoryTreats.Controllers
 {
+
   public class TreatsController : Controller
   {
     private readonly FactoryTreatsContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public TreatsController(FactoryTreatsContext db)
+    public TreatsController(UserManager<ApplicationUser> userManager, FactoryTreatsContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      return View(_db.Treats.ToList());
+        var userTreats = _db.Treats.ToList();
+        return View(userTreats);
     }
 
     public ActionResult Details(int id)
@@ -31,6 +39,7 @@ namespace FactoryTreats.Controllers
           return View(thisTreat);
       }
 
+      [Authorize]
       public ActionResult Edit(int id)
       {
           var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -38,6 +47,7 @@ namespace FactoryTreats.Controllers
           return View(thisTreat);
       }
 
+      [Authorize]
       [HttpPost]
       public ActionResult Edit(Treat treat)
       {
@@ -46,6 +56,7 @@ namespace FactoryTreats.Controllers
           return RedirectToAction("Index");
       }
 
+      [Authorize]
       [HttpPost]
       public ActionResult Edit(Treat treat, int FlavorId)
       {
@@ -58,6 +69,7 @@ namespace FactoryTreats.Controllers
         return RedirectToAction("Index");
       }
 
+      [Authorize]
       public ActionResult AddFlavor(int id)
       {
           var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
@@ -65,6 +77,7 @@ namespace FactoryTreats.Controllers
           return View(thisTreat);
       }
 
+      [Authorize]
       [HttpPost]
       public ActionResult AddFlavor(Treat treat, int FlavorId)
       {
@@ -76,6 +89,7 @@ namespace FactoryTreats.Controllers
           return RedirectToAction("Index");
       }
 
+      [Authorize]
       [HttpPost]
       public ActionResult DeleteFlavor(int joinId)
       {
@@ -84,12 +98,15 @@ namespace FactoryTreats.Controllers
           _db.SaveChanges();
           return RedirectToAction("Index");
       }
+
+      [Authorize]
       public ActionResult Delete(int id)
       {
           var thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
           return View(thisTreat);
       }
 
+      [Authorize]
       [HttpPost, ActionName("Delete")]
       public ActionResult DeleteConfirmed(int id)
       {
@@ -99,16 +116,21 @@ namespace FactoryTreats.Controllers
           return RedirectToAction("Index");
       }
 
+    [Authorize]
     public ActionResult Create()
     {
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
       return View();
     }
 
+    [Authorize]
     [HttpPost]
-    public ActionResult Create(Treat treat, int FlavorId)
+    public async Task<ActionResult> Create(Treat treat, int FlavorId)
     {
         var thisTreatName = _db.Treats.FirstOrDefault(u => u.TreatName == treat.TreatName);
+        var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUser = await _userManager.FindByIdAsync(userId);
+        treat.User = currentUser;
         if(thisTreatName == null){
             _db.Treats.Add(treat);
             _db.SaveChanges();

@@ -5,22 +5,29 @@ using System.Threading.Tasks;
 using FactoryTreats.Models;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 
 
 namespace FactoryTreats.Controllers
 {
+  
   public class FlavorsController : Controller
   {
     private readonly FactoryTreatsContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public FlavorsController(FactoryTreatsContext db)
+    public FlavorsController(UserManager<ApplicationUser> userManager, FactoryTreatsContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      return View(_db.Flavors.ToList());
+        var userFlavors = _db.Flavors.ToList();
+        return View(userFlavors);
     }
 
 
@@ -33,15 +40,20 @@ namespace FactoryTreats.Controllers
         return View(thisFlavor);
     }
 
+    [Authorize]
     public ActionResult Create()
     {
         return View();
     }
 
+    [Authorize]
     [HttpPost]
-     public ActionResult Create(Flavor flavor)
+     public async Task<ActionResult> Create(Flavor flavor)
     {
         bool thisFlavor = _db.Flavors.Any(u => u.FlavorName == flavor.FlavorName);
+        var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        var currentUser = await _userManager.FindByIdAsync(userId);
+        flavor.User = currentUser;
         if(!thisFlavor){
           _db.Flavors.Add(flavor);
           _db.SaveChanges();
@@ -57,7 +69,8 @@ namespace FactoryTreats.Controllers
 
         return View();
     }
-
+    
+    [Authorize]
     public ActionResult Edit(int id)
     {
         var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
@@ -65,6 +78,7 @@ namespace FactoryTreats.Controllers
         return View(thisFlavor);
     }
 
+    [Authorize]
     [HttpPost]
     public ActionResult Edit(Flavor flavor, int TreatId)
     {
@@ -96,12 +110,14 @@ namespace FactoryTreats.Controllers
         return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
         var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
         return View(thisFlavor);
     }
 
+    [Authorize]
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

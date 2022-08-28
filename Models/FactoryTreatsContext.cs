@@ -4,7 +4,7 @@ using FactoryTreats.Models;
 
 namespace FactoryTreats.Models
 {
-  public class FactoryTreatsContext : DbContext
+  public class FactoryTreatsContext : IdentityDbContext<ApplicationUser>
   {
     public DbSet<Treat> Treats { get; set; }
     public DbSet<Flavor> Flavors { get; set; }

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Identity;
 using FactoryTreats.Models;
 using System.Threading.Tasks;
 using FactoryTreats.ViewModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 
@@ -39,7 +38,7 @@ namespace FactoryTreats.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Home");
             }
             else
             {

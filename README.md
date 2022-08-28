@@ -1,6 +1,6 @@
 # An application to market sweet and savory treats. This application should keep an authentication and a many-to-many relationship.  
 
-#### By: Liliia Kryvelova
+#### By: _Liliia Kryvelova_
 
 https://github.com/liliiakryvelova/FactoryTreats.git
 

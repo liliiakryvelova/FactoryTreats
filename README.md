@@ -33,7 +33,7 @@ https://github.com/liliiakryvelova/FactoryTreats.git
 
 
 ## Known Bugs
-
+* _No known bugs_
 
 ## License
 

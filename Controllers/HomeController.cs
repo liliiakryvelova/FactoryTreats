@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
-using Factory.Models;
+using FactoryTreats.Models;
 using System.Linq;
 
-namespace Factory.Controllers
+namespace FactoryTreats.Controllers
 {
   public class HomeController : Controller
   {
-    private readonly FactoryContext _db;
+    private readonly FactoryTreatsContext _db;
 
-    public HomeController(FactoryContext db)
+    public HomeController(FactoryTreatsContext db)
     {
       _db = db;
     }
@@ -16,7 +16,7 @@ namespace Factory.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      return View(_db.EngineerMachine.ToList());
+      return View(_db.TreatFlavor.ToList());
     }
 
   }

@@ -1,0 +1,30 @@
+@{
+    Layout = "_Layout";
+}
+
+@using FactoryTreats.Models;
+@model List<FactoryTreats.Models.Treat>;
+
+<h1>Treat</h1>
+
+@{
+  int k = 1;
+}
+ 
+<table class="style">
+  <tr>
+    <th>Number</th>
+    <th>TreatName</th>
+  </tr>
+    @foreach(Treat treat in Model)
+    {
+      <tr>
+        <td>@Html.ActionLink($"{k}", "Details", new { id = treat.TreatId })</td>
+        <td>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</td>
+      </tr>
+      k+=1;
+    }
+</table>
+
+<p>@Html.ActionLink("Add new Treat", "Create")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

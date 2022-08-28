@@ -2,37 +2,35 @@
   Layout = "_Layout";
 }
 @{
-    ViewBag.Title = "Dr. Sillystringz's Factory";
+    ViewBag.Title = "Pierre's Sweet and Savory Treats";
 }
 
 <div class="jumbotron">
-    <h1>Dr. Sillystringz's Factory</h1>
+    <h1>Pierre's Sweet and Savory Treats</h1>
 </div>
 <div class="row">
     <div class="col-md-3">
-        <h2>Welcome to Dr. Sillystringz's Factory</h2>
-        <p>Dr. Sillystringz's Factory is a sample application that
+        <h2>Welcome to Pierre's Sweet and Savory Treats</h2>
+        <p>Pierre's Sweet and Savory Treats is a sample application that
         demonstrates how to use Entity Framework 6 in an 
         ASP.NET MVC 5 web application.</p>
     </div>
     <div class="col-md-3">
-      <p>@Html.ActionLink("See all Engineers", "Index", "Engineers")</p>   
+      <p>@Html.ActionLink("See all Flavors", "Index", "Flavors")</p>   
     </div>
     <div class="col-md-3">
-        <p>@Html.ActionLink("Create a new Engineer", "Create", "Engineers")</p>
+        <p>@Html.ActionLink("Create a new Flavor", "Create", "Flavors")</p>
         <hr />
-        <p>@Html.ActionLink("Add a new Machine", "Create", "Machines")</p>
-        <hr />
-        <p>@Html.ActionLink("All Engineers and Machines", "AllEngineerMachine", "Engineers")</p>
+        <p>@Html.ActionLink("Add a new Treat", "Create", "Treats")</p>
     </div>
     <div class="col-md-3">
-        <p>@Html.ActionLink("See all Machines", "Index", "Machines")</p> 
+        <p>@Html.ActionLink("See all Treats", "Index", "Treats")</p> 
     </div>
 
-    @using Factory.Models;
-@model List<Factory.Models.EngineerMachine>;
+@using FactoryTreats.Models;
+@model List<FactoryTreats.Models.TreatFlavor>;
 
-<h1>Engineers and Machines</h1>
+<h1>Treats and Flavors</h1>
 
 @{
   int k = 1;
@@ -41,15 +39,15 @@
 <table class = "style" >
   <tr>
     <th>Number</th>
-    <th>Engineer Name</th>
-    <th>Machine Name</th>
+    <th>Flavor Name</th>
+    <th>Treat Name</th>
   </tr>
-    @foreach(EngineerMachine engineerMachine in Model)
+    @foreach(TreatFlavor treatflavor in Model)
     {
       <tr>
         <td>@Html.Label($"{k}")</td>
-        <td>@Html.ActionLink($"{engineerMachine.Engineer.EngineerName}", "Details", "Engineers",new { id = engineerMachine.Engineer.EngineerId })</td>
-        <td>@Html.ActionLink($"{engineerMachine.Machine.MachineName}", "Details", "Machines", new { id = engineerMachine.Machine.MachineId })</td>
+        <td>@Html.ActionLink($"{treatflavor.Flavor.FlavorName}", "Details", "Flavors",new { id = treatflavor.Flavor.FlavorId })</td>
+        <td>@Html.ActionLink($"{treatflavor.Treat.TreatName}", "Details", "Treats", new { id = treatflavor.Treat.TreatId })</td>
       </tr>
       k+=1;
     }
